@@ -1,0 +1,8 @@
+2016-05-04 12:00:25: (log.c.164) server started 
+2016-05-04 12:00:35: (server.c.1558) server stopped by UID = 502 PID = 80374 
+2016-05-04 12:13:42: (log.c.164) server started 
+2016-05-04 12:13:51: (server.c.1558) server stopped by UID = 502 PID = 82209 
+2016-05-04 12:16:30: (log.c.164) server started 
+2016-05-04 12:16:39: (server.c.1558) server stopped by UID = 502 PID = 82523 
+2016-05-04 12:18:17: (log.c.164) server started 
+2016-05-04 12:18:26: (server.c.1558) server stopped by UID = 502 PID = 82745 
