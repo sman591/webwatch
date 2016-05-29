@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Url:
+  = @website.url
+
+= link_to 'Edit', edit_website_path(@website)
+\|
+= link_to 'Back', websites_path
