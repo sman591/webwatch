@@ -1,10 +1,16 @@
 class ScreenshotJob < ApplicationJob
   queue_as :screenshots
 
-  def perform(*args)
-    return if ScreenshotJob.queued?
+  @@active_websites = []
 
-    Website.all.each do |website|
+  def perform(args)
+    website_id = args[:website_id]
+    return if self.class.is_active? website_id
+    @@active_websites << website_id
+    begin
+      website = Website.find(website_id)
+      return if not website
+
       file = Tempfile.new(["screenshot-#{website.id}", ".png"])
       begin
         webshot.capture website.url, file.path, width: 900, height: 562, quality: 85
@@ -16,6 +22,8 @@ class ScreenshotJob < ApplicationJob
         file.close
         file.unlink   # deletes the temp file
       end
+    ensure
+      @@active_websites.delete(website_id)
     end
   end
 
@@ -23,15 +31,21 @@ class ScreenshotJob < ApplicationJob
     @webshot ||= Webshot::Screenshot.instance
   end
 
-  def self.queued?
-    return true if Sidekiq::Queue.new("screenshots").size > 0
+  def self.is_active?(website_id)
+    @@active_websites.include? website_id
+  end
 
-    workers = Sidekiq::Workers.new
-    workers.size # => 2
-    workers.each do |process_id, thread_id, work|
-      return true if work['queue'] == "screenshots"
+  def self.is_queued?(website_id)
+    queries = [
+      Proc.new { Sidekiq::Queue.new(queue_name) },
+      Proc.new { Sidekiq::RetrySet.new }
+    ]
+    queries.any? do |query|
+      query.call.any? do |job|
+        job = job.args[0]
+        job['job_class'] == 'ScreenshotJob' &&
+          job['arguments'][0]['website_id'] == website_id
+      end
     end
-
-    false
   end
 end
