@@ -234,6 +234,8 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-limit_fetch (3.1.0)
+      sidekiq (>= 4)
     sidekiq-scheduler (2.0.7)
       multi_json (~> 1)
       redis (~> 3)
@@ -303,6 +305,7 @@ DEPENDENCIES
   shoulda-context
   shoulda-matchers (~> 3.1)
   sidekiq
+  sidekiq-limit_fetch
   sidekiq-scheduler (~> 2.0)
   sinatra!
   spring

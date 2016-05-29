@@ -44,6 +44,7 @@ gem 'validate_url'
 
 gem 'sidekiq'
 gem 'sidekiq-scheduler', '~> 2.0'
+gem 'sidekiq-limit_fetch'
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', branch: 'master', require: false
 
 group :production do
