@@ -4,6 +4,8 @@
 #= require unveil
 #= require jquery-timeago
 
-$(document).ready ->
+ready = ->
   $("img").unveil()
   $("time.timeago").timeago()
+
+$(document).on('turbolinks:load', ready)
