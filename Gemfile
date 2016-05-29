@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.0'
 ###   Custom gems   ###
 
 gem 'haml-rails', '~> 0.9'
+gem 'webshot'
+gem 'paperclip', '~> 5.0.0.beta2'
 
 gem 'validate_url'
 
