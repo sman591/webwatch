@@ -1,21 +1,33 @@
-%h1 Listing websites
+.row
+  %h1 Listing websites
 
-%table
-  %thead
-    %tr
-      %th Url
-      %th Last screenshot
-      %th
-      %th
-
-  %tbody
-    - @websites.each do |website|
-      %tr
-        %td= website.url
-        %td= website.screenshots.order(created_at: :desc).first.created_at
-        %td= link_to 'Show', website
-        %td= link_to 'Edit', edit_website_path(website)
-        %td= link_to 'Destroy', website, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.row
+  .card-deck-wrapper
+    .card-deck
+      - @websites.each do |website|
+        .card
+          - if website.current_screenshot
+            %img.card-img-top{:alt => "Card image cap", "data-src" => website.current_screenshot.image.url(:medium)}/
+          - else
+            .card-block.card-inverse.card-info.text-xs-center
+              %blockquote.card-blockquote
+                %p
+                  Congratulations!
+                  %br You're watching a new website.
+                %footer
+                  It will show up here on the next run.
+          .card-block
+            %h4.card-title= website.url
+            %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+            %p.card-text
+              %small.text-muted
+                - if website.current_screenshot
+                  %time.timeago{datetime: website.current_screenshot.created_at.iso8601}= website.current_screenshot.created_at
+                - else
+                  %em No screenshots have been taken
+            = link_to 'Show', website, class: 'card-link'
+            = link_to 'Edit', edit_website_path(website), class: 'card-link'
+            = link_to 'Destroy', website, class: 'card-link text-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
