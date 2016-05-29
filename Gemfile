@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml-rails', '~> 0.9'
 gem 'webshot'
 gem 'paperclip', '~> 5.0.0.beta2'
+gem 'aws-sdk', '~> 2.3'
 
 gem 'validate_url'
 
