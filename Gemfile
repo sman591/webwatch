@@ -37,8 +37,15 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'haml-rails', '~> 0.9'
 
+gem 'validate_url'
+
 group :production do
   gem 'rails_12factor'
+end
+
+group :test do
+  gem 'shoulda-context'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 ### End custom gems ###
