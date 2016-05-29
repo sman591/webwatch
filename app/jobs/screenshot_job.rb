@@ -2,6 +2,7 @@ class ScreenshotJob < ApplicationJob
   queue_as :screenshots
 
   @@active_websites = []
+  @@webshot = nil
 
   def perform(args)
     website_id = args[:website_id]
@@ -28,7 +29,7 @@ class ScreenshotJob < ApplicationJob
   end
 
   def webshot
-    @webshot ||= Webshot::Screenshot.instance
+    @@webshot = Webshot::Screenshot.instance
   end
 
   def self.is_active?(website_id)
