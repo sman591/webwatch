@@ -1,3 +1,5 @@
 :queues:
   - default
   - screenshots
+# https://github.com/mperham/sidekiq/wiki/Problems-and-Troubleshooting
+:concurrency:  3
