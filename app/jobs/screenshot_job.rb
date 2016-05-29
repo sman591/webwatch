@@ -8,8 +8,6 @@ class ScreenshotJob < ApplicationJob
     ws = Webshot::Screenshot.instance
     file = Tempfile.new(["screenshot-#{website.id}", ".png"])
     begin
-      puts file
-      puts file.path
       ws.capture website.url, file.path, width: 900, height: 562, quality: 85
       screenshot = Screenshot.new
       screenshot.website = website
