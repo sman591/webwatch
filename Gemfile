@@ -39,6 +39,9 @@ gem 'haml-rails', '~> 0.9'
 
 gem 'validate_url'
 
+gem 'sidekiq'
+gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', branch: 'master', require: false
+
 group :production do
   gem 'rails_12factor'
 end
