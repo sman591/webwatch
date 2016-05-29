@@ -208,6 +208,7 @@ GEM
     redis (3.3.0)
     ruby_parser (3.8.2)
       sexp_processor (~> 4.1)
+    rufus-scheduler (3.1.10)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -224,6 +225,12 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-scheduler (2.0.7)
+      multi_json (~> 1)
+      redis (~> 3)
+      rufus-scheduler (~> 3.1.8)
+      sidekiq (>= 3)
+      tilt (>= 1.4.0)
     slop (3.6.0)
     spring (1.7.1)
     spring-watcher-listen (2.0.0)
@@ -286,6 +293,7 @@ DEPENDENCIES
   shoulda-context
   shoulda-matchers (~> 3.1)
   sidekiq
+  sidekiq-scheduler (~> 2.0)
   sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)

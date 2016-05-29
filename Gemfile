@@ -42,6 +42,7 @@ gem 'paperclip', '~> 5.0.0.beta2'
 gem 'validate_url'
 
 gem 'sidekiq'
+gem 'sidekiq-scheduler', '~> 2.0'
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', branch: 'master', require: false
 
 group :production do

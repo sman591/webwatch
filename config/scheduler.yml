@@ -1,0 +1,3 @@
+ScreenshotJob:
+  every: ["30s"]
+  description: "Capture new screenshots every minute"

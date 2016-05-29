@@ -8,7 +8,8 @@
   - @website.screenshots.order(created_at: :desc).each do |screenshot|
     %li
       %p= screenshot.created_at
-      = image_tag screenshot.image.url(:thumb)
+      = link_to screenshot.image.url do
+        = image_tag screenshot.image.url(:thumb)
 
 = link_to 'Edit', edit_website_path(@website)
 \|
