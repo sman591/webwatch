@@ -95,6 +95,8 @@ GEM
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.5)
     ffi (1.9.10)
+    font-awesome-rails (4.6.3.0)
+      railties (>= 3.2, < 5.1)
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha3)
   byebug
   coffee-rails (~> 4.1.0)
+  font-awesome-rails
   guard
   guard-minitest
   haml-rails (~> 0.9)
