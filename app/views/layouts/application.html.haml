@@ -9,6 +9,15 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    .pos-f-t
+      .navbar.navbar-dark.bg-inverse.navbar-static-top
+        %a.navbar-brand{:href => "#"} Web Watch
+        %ul.nav.navbar-nav
+          %li.nav-item
+            %a.nav-link{:href => root_path} Home
+          %li.nav-item
+            %a.nav-link{:href => websites_path} Websites
+
     .container
       - if flash[:notice].present? || flash[:alert].present?
         .row
