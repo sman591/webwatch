@@ -10,4 +10,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      - if flash[:notice].present? || flash[:alert].present?
+        .row
+          - if flash[:notice].present?
+            .col-xs-12.alert.alert-info{role: 'alert'}
+              = fa_icon "info-circle", class: "fa-space-r"
+              = flash[:notice]
+          - if flash[:alert].present?
+            .col-xs-12.alert.alert-danger{role: 'alert'}
+              = fa_icon "warning", class: "fa-space-r"
+              = flash[:alert]
       = yield
