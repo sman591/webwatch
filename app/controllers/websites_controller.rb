@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  before_action :set_website, only: [:show, :edit, :update, :destroy]
+  before_action :set_website, only: [:show, :edit, :update, :destroy, :refresh]
 
   # GET /websites
   # GET /websites.json
@@ -59,6 +59,11 @@ class WebsitesController < ApplicationController
       format.html { redirect_to websites_url, notice: 'Website was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def refresh
+    ScreenshotJob.perform_later(website_id: @website.id)
+    redirect_to :websites, notice: "Refresh has been queued for #{@website.url}"
   end
 
   private

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web, at: '/sidekiq'
 
-  resources :websites
+  resources :websites do
+    get :refresh, on: :member
+  end
 end

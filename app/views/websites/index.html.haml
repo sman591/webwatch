@@ -25,6 +25,7 @@
                   %time.timeago{datetime: website.current_screenshot.created_at.iso8601}= website.current_screenshot.created_at
                 - else
                   %em No screenshots have been taken
+            = link_to 'Refresh', refresh_website_path(website), class: 'card-link'
             = link_to 'Show', website, class: 'card-link'
             = link_to 'Edit', edit_website_path(website), class: 'card-link'
             = link_to 'Destroy', website, class: 'card-link text-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }
