@@ -2,9 +2,10 @@
   .col-xs-12
     %h1
       New website
-      = link_to websites_path, class: "btn btn-primary-outline pull-right" do
-        = fa_icon "close", class: "fa-space-r"
-        Cancel
+      .pull-right
+        = link_to websites_path, class: "btn btn-primary-outline" do
+          = fa_icon "close", class: "fa-space-r"
+          Cancel
     %hr
 
 .row

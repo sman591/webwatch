@@ -2,9 +2,10 @@
   .col-xs-12
     %h1
       = @website.url
-      = link_to @website, class: "btn btn-primary-outline pull-right" do
-        = fa_icon "globe", class: "fa-space-r"
-        Show
+      .pull-right
+        = link_to @website, class: "btn btn-primary-outline" do
+          = fa_icon "globe", class: "fa-space-r"
+          Show
     %hr
 
 .row

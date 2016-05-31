@@ -2,9 +2,10 @@
   .col-xs-12
     %h1
       Listing websites
-      = link_to new_website_path, class: "btn btn-primary-outline pull-right" do
-        = fa_icon "plus", class: "fa-space-r"
-        New
+      .pull-right
+        = link_to new_website_path, class: "btn btn-primary-outline" do
+          = fa_icon "plus", class: "fa-space-r"
+          New
     %hr
 
 .row
