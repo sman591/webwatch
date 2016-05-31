@@ -1,5 +1,10 @@
-%h1 New website
+.row
+  %h1
+    New website
+    = link_to websites_path, class: "btn btn-primary-outline pull-right" do
+      = fa_icon "close", class: "fa-space-r"
+      Cancel
+  %hr
 
-= render 'form'
-
-= link_to 'Back', websites_path
+.row
+  = render 'form'
