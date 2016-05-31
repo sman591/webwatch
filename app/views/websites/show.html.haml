@@ -7,9 +7,19 @@
     = link_to edit_website_path(@website), class: "btn btn-primary-outline pull-right" do
       = fa_icon "pencil", class: "fa-space-r"
       Edit
+    = link_to refresh_website_path(@website), class: "btn btn-primary-outline pull-right" do
+      = fa_icon "refresh", class: "fa-space-r"
+      Refresh
   %hr
 
 .row
+  - if @website.screenshots.empty?
+    %p.alert.alert-info.col-xs-12
+      = fa_icon "info-circle", class: "fa-space-r"
+      No screenshots have been taken yet.
+      = link_to refresh_website_path(@website) do
+        Take one now
+        = fa_icon "angle-right"
   .card-deck-wrapper
     .card-deck
       - @website.screenshots.limit(10).order(created_at: :desc).each do |screenshot|
