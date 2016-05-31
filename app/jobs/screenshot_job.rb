@@ -19,6 +19,8 @@ class ScreenshotJob < ApplicationJob
         screenshot.website = website
         screenshot.image = open(file.path)
         screenshot.save!
+
+        ScreendiffJob.perform_later(website_id: website_id)
       ensure
         file.close
         file.unlink   # deletes the temp file

@@ -8,4 +8,9 @@ class Website < ApplicationRecord
     screenshots.order(created_at: :desc).first
   end
 
+  def previous_screenshot
+    return nil if screenshots.count < 2
+    screenshots.order(created_at: :desc)[1]
+  end
+
 end

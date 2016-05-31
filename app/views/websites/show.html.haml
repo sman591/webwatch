@@ -11,23 +11,44 @@
           Refresh
     %hr
 
-.row
-  .col-xs-12
-    - if @website.screenshots.empty?
+- if @website.screenshots.empty?
+  .row
+    .col-xs-12
       %p.alert.alert-info.col-xs-12
         = fa_icon "info-circle", class: "fa-space-r"
         No screenshots have been taken yet.
         = link_to refresh_website_path(@website) do
           Take one now
           = fa_icon "angle-right"
-    .card-deck-wrapper
-      .card-deck
-        - @website.screenshots.limit(10).order(created_at: :desc).each do |screenshot|
-          .col-sm-4
-            .card.card-inverse
-              %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.image.url(:medium)}/
-              .card-block
-                = link_to 'Remove', @website, class: 'card-link text-danger pull-xs-right', :method => :delete, :data => { :confirm => 'Are you sure?' }
-                %p.card-text
-                  %small.text-muted
-                    %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at
+- @website.screenshots.limit(10).order(created_at: :desc).each do |screenshot|
+  .row
+    .col-sm-6
+      .card
+        %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.image.url(:medium)}/
+      .card-block
+        %p.card-text
+          %small
+            %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at
+    .col-sm-6
+      - if screenshot.has_diff?
+        .card
+          %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
+        .card-block
+          %p.card-text
+            - if screenshot.is_different?
+              %small.text-danger
+                %strong= "Changed #{screenshot.diff_percent}%"
+            - else
+              %small= "Changed #{screenshot.diff_percent}%"
+            %small.pull-right
+              Generated
+              %time.timeago{datetime: screenshot.diff_date.iso8601}= "screenshot.diff_date"
+      - else
+        .card.card-inverse
+          .card-block.card-inverse.card-info.text-xs-center
+            %blockquote.card-blockquote
+              %p Changes haven't been computed for this image.
+              %footer
+                It could still be processing, or a newer screenshot was taken.
+    .col-xs-12
+      %hr

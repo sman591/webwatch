@@ -39,6 +39,7 @@ gem 'haml-rails', '~> 0.9'
 gem 'webshot'
 gem 'paperclip', '~> 5.0.0.beta2'
 gem 'aws-sdk', '~> 2.3'
+gem 'chunky_png'
 gem 'rollbar'
 
 gem 'validate_url'
