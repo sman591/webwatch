@@ -2,6 +2,8 @@
 
 one:
   url: http://example.com
+  diff_threshold: 5
 
 two:
   url: http://example.com/test
+  diff_threshold: 5
