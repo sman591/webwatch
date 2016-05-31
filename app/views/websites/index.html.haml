@@ -1,5 +1,9 @@
 .row
-  %h1 Listing websites
+  %h1
+    Listing websites
+    = link_to new_website_path, class: "btn btn-primary-outline pull-right" do
+      = fa_icon "plus", class: "fa-space-r"
+      New
   %hr
 
 .row
@@ -28,7 +32,3 @@
           = link_to 'Show', website, class: 'card-link'
           = link_to 'Edit', edit_website_path(website), class: 'card-link'
           = link_to 'Destroy', website, class: 'card-link text-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Website', new_website_path
