@@ -228,6 +228,8 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.3.0)
+    rollbar (2.11.3)
+      multi_json
     ruby_parser (3.8.2)
       sexp_processor (~> 4.1)
     rufus-scheduler (3.1.10)
@@ -319,6 +321,7 @@ DEPENDENCIES
   rails-assets-tether (>= 1.1.0)!
   rails-assets-unveil!
   rails_12factor
+  rollbar
   sass-rails (~> 5.0)
   shoulda-context
   shoulda-matchers (~> 3.1)
