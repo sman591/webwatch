@@ -35,12 +35,13 @@
           .card
             %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
         .card-block
-          %p.card-text
-            - if screenshot.is_different?
-              %small.text-danger
+          - diff_class = screenshot.is_different? ? "text-danger" : ""
+          %p.card-text{class: diff_class}
+            %small
+              - if screenshot.is_different?
                 %strong= "Changed #{screenshot.diff_percent}%"
-            - else
-              %small= "Changed #{screenshot.diff_percent}%"
+              - else
+                = "Changed #{screenshot.diff_percent}%"
             %small.pull-right
               Generated
               %time.timeago{datetime: screenshot.diff_date.iso8601}= "screenshot.diff_date"
