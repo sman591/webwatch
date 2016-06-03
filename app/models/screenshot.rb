@@ -24,5 +24,9 @@ class Screenshot < ApplicationRecord
     self.diff_image = image
     self.diff_date = Time.now
     save!
+
+    if percent >= DIFF_IGNORE_THRESHOLD
+      ScreenshotsMailer.changed(self.id).deliver_later
+    end
   end
 end
