@@ -44,6 +44,10 @@
             %small.pull-right
               Generated
               %time.timeago{datetime: screenshot.diff_date.iso8601}= "screenshot.diff_date"
+        - if not screenshot.diff_image?
+          %p.alert.small.text-muted.center
+            = fa_icon "info-circle", class: "fa-space-r"
+            %em No difference image was saved
       - else
         .card.card-inverse
           .card-block.card-inverse.card-info.text-xs-center
