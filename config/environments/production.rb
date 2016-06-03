@@ -89,6 +89,16 @@ Rails.application.configure do
   ### Custom ###
   config.force_ssl = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:   ENV["SMTP_ADDRESS"],
+    port:      ENV["SMTP_PORT"],
+    user_name: ENV["SMTP_USER_NAME"],
+    password:  ENV["SMTP_PASSWORD"]
+  }
+  config.action_mailer.default_url_options = { :host => 'watch.oweb.co', :protocol => 'https' }
+  config.action_mailer.asset_host = 'https://watch.oweb.co'
+
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {

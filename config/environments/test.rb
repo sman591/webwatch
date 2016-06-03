@@ -39,4 +39,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ### Custom ###
+  config.action_mailer.default_url_options = { :host => 'watch.example.com', :protocol => 'http' }
+  config.action_mailer.asset_host = 'http://watch.example.com'
 end
