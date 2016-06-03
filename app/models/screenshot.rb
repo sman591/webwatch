@@ -9,6 +9,8 @@ class Screenshot < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :image, matches: [/png\Z/]
 
+  DIFF_IGNORE_THRESHOLD = 0
+
   def has_diff?
     diff_date.present? && diff_percent.present?
   end

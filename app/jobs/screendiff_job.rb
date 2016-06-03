@@ -45,10 +45,15 @@ class ScreendiffJob < ApplicationJob
 
       diff_percent = ((diff.inject {|sum, value| sum + value} || 0) / images.first.pixels.length) * 100
 
-      tmp_files << Tempfile.new(["screendiff-#{screenshots[0].id}", ".png"])
-      output.save(tmp_files.last.path)
+      if diff_percent <= Screenshot::DIFF_IGNORE_THRESHOLD
+        diff_image = nil
+      else
+        tmp_files << Tempfile.new(["screendiff-#{screenshots[0].id}", ".png"])
+        output.save(tmp_files.last.path)
+        diff_image = open(tmp_files.last.path)
+      end
 
-      screenshots[0].submit_diff(open(tmp_files.last.path), diff_percent)
+      screenshots[0].submit_diff(diff_image, diff_percent)
     ensure
       tmp_files.map(&:close)
       tmp_files.map(&:unlink)   # deletes the temp file

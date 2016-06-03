@@ -31,8 +31,9 @@
             %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at
     .col-sm-6
       - if screenshot.has_diff?
-        .card
-          %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
+        - if screenshot.diff_image?
+          .card
+            %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
         .card-block
           %p.card-text
             - if screenshot.is_different?
