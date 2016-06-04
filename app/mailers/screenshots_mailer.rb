@@ -1,7 +1,7 @@
 class ScreenshotsMailer < ApplicationMailer
 
-  DEFAULT_FROM_EMAIL = "stuart@stuartolivera.com"
-  DEFAULT_TO_EMAIL   = "stuart@stuartolivera.com"
+  DEFAULT_FROM_EMAIL = "Web Watch <web@watch.oweb.co>"
+  DEFAULT_TO_EMAIL   = "Stuart Olivera <stuart@stuartolivera.com>"
 
   default from: "\"Web Watch\" <#{DEFAULT_FROM_EMAIL}>"
 
