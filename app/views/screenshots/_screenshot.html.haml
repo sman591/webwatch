@@ -1,15 +1,20 @@
-.col-sm-6
+.col-md-4
   .card
     %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => screenshot.image.url(:medium)}/
   .card-block
     %p.card-text
       %small
         %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at.to_formatted_s(:long_ordinal)
-.col-sm-6
-  - if screenshot.has_diff?
+- if screenshot.has_diff?
+  .col-md-4
     - if screenshot.diff_image?
       .card
         %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
+    - else
+      %p.alert.small.text-muted.center
+        %i.fa.fa-info-circle.fa-space-r
+        %em No difference image was saved
+  .col-md-4
     .card-block
       - diff_class = screenshot.is_different? ? "text-danger" : ""
       %p.card-text{class: diff_class}
@@ -18,14 +23,12 @@
             %strong= "Changed #{screenshot.diff_percent}%"
           - else
             = "Changed #{screenshot.diff_percent}%"
-        %small.pull-right
+        %br
+        %small
           Generated
           %time.timeago{datetime: screenshot.diff_date.iso8601}= screenshot.diff_date.to_formatted_s(:long_ordinal)
-    - if not screenshot.diff_image?
-      %p.alert.small.text-muted.center
-        %i.fa.fa-info-circle.fa-space-r
-        %em No difference image was saved
-  - else
+- else
+  .col-md-8
     .card.card-inverse
       .card-block.card-inverse.card-info.text-xs-center
         %blockquote.card-blockquote
