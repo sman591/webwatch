@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com
 
 @import "bootstrap"
+@import "variables"
 
 .website.card
   cursor: pointer
@@ -10,3 +11,4 @@
   &:hover
     background: darken($card-bg, 1%)
     border-color: darken($card-border-color, 15%)
+    @include transition(all $transition_duration ease-in-out)
