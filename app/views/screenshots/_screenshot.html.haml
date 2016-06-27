@@ -1,6 +1,6 @@
 .col-sm-6
   .card
-    %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.image.url(:medium)}/
+    %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => screenshot.image.url(:medium)}/
   .card-block
     %p.card-text
       %small
@@ -9,7 +9,7 @@
   - if screenshot.has_diff?
     - if screenshot.diff_image?
       .card
-        %img.card-img-top{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
+        %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
     .card-block
       - diff_class = screenshot.is_different? ? "text-danger" : ""
       %p.card-text{class: diff_class}

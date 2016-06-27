@@ -14,7 +14,7 @@
       - @websites.each do |website|
         .card.website{onclick: "window.location = '#{website_path(website.id)}/'"}
           - if website.current_screenshot
-            %img.card-img-top{:alt => "Card image cap", "data-src" => website.current_screenshot.image.url(:medium)}/
+            %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => website.current_screenshot.image.url(:medium)}/
           - else
             .card-block.card-inverse.card-info.text-xs-center
               %blockquote.card-blockquote
