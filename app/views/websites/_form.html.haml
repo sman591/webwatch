@@ -6,11 +6,14 @@
         - @website.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  %fieldset.form-group
     = f.label :url
-    = f.text_field :url
-  .field
+    = f.text_field :url, class: "form-control", placeholder: "http://example.com"
+    %small.text-muted The URL for the website
+  %fieldset.form-group
     = f.label :diff_threshold
-    = f.text_field :diff_threshold
+    = f.text_field :diff_threshold, class: "form-control", placeholder: "5.0"
+    %small.text-muted The threshold percentage before an alert is generated
+  %hr
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-primary"
