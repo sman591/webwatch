@@ -7,5 +7,7 @@
 ready = ->
   $("img").unveil()
   $("time.timeago").timeago()
+  $("[data-toggle=tooltip]").tooltip
+    delay: 400
 
 $(document).on('turbolinks:load', ready)

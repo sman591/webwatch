@@ -4,11 +4,11 @@
       = @website.url
       .pull-right
         .btn-group
-          = link_to refresh_website_path(@website), title: "Refresh", class: "btn btn-primary-outline" do
+          = link_to refresh_website_path(@website), title: "Refresh", class: "btn btn-primary-outline", data: { toggle: "tooltip" } do
             = fa_icon "refresh"
-          = link_to edit_website_path(@website), class: "btn btn-primary-outline", title: "Edit" do
+          = link_to edit_website_path(@website), class: "btn btn-primary-outline", title: "Edit", data: { toggle: "tooltip" } do
             = fa_icon "pencil"
-          = link_to @website, class: 'btn btn-primary-outline', title: "Destroy", :method => :delete, data: { confirm: 'Are you sure?' } do
+          = link_to @website, class: 'btn btn-primary-outline', title: "Destroy", :method => :delete, data: { toggle: "tooltip", confirm: 'Are you sure?' } do
             = fa_icon "trash"
     %hr
 
