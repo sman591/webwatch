@@ -28,6 +28,7 @@
             %p.card-text
               %small.text-muted
                 - if website.current_screenshot
+                  = fa_icon "camera", class: "fa-space-r"
                   %time.timeago{datetime: website.current_screenshot.created_at.iso8601}= website.current_screenshot.created_at
                 - else
                   %em No screenshots have been taken
