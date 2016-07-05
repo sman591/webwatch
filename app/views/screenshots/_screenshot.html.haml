@@ -1,6 +1,6 @@
 .col-md-4
   .card
-    %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => screenshot.image.url(:medium)}/
+    = render "screenshots/image", image: screenshot.image, object: screenshot, group: "image"
   .card-block
     %p.card-text
       %small
@@ -10,7 +10,7 @@
   .col-md-4
     - if screenshot.diff_image?
       .card
-        %img.card-img-top.card-img-flex{:alt => "Card image cap", "data-src" => screenshot.diff_image.url(:medium)}/
+        = render "screenshots/image", image: screenshot.diff_image, object: screenshot, group: "diff_image"
     - else
       %p.alert.small.text-muted.center
         %i.fa.fa-info-circle.fa-space-r

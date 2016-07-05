@@ -56,6 +56,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
   gem 'rails-assets-unveil'
   gem 'rails-assets-jquery-timeago'
+  gem 'rails-assets-simple-lightbox'
 end
 
 group :production do
