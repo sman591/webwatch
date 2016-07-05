@@ -18,8 +18,6 @@ setupLightbox = ->
     lightbox = $(this).data("lightbox")
     lightboxes.push(lightbox) if lightboxes.indexOf(lightbox) < 0
 
-  console.log(lightboxes)
-
   lightboxes.forEach (lightbox) ->
     $("[data-lightbox=\"#{lightbox}\"]").simpleLightbox()
 
