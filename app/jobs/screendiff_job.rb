@@ -6,7 +6,7 @@ class ScreendiffJob < ApplicationJob
   def perform(args)
     website_id = args[:website_id]
     website = Website.find(website_id)
-    return if not website
+    return unless website
 
     screenshots = [
       website.current_screenshot,
@@ -30,20 +30,19 @@ class ScreendiffJob < ApplicationJob
 
       images.first.height.times do |y|
         images.first.row(y).each_with_index do |pixel, x|
-          unless pixel == images.last[x,y]
-            score = Math.sqrt(
-              (r(images.last[x,y]) - r(pixel)) ** 2 +
-              (g(images.last[x,y]) - g(pixel)) ** 2 +
-              (b(images.last[x,y]) - b(pixel)) ** 2
-            ) / Math.sqrt(MAX ** 2 * 3)
+          next if pixel == images.last[x, y]
+          score = Math.sqrt(
+            (r(images.last[x, y]) - r(pixel))**2 +
+            (g(images.last[x, y]) - g(pixel))**2 +
+            (b(images.last[x, y]) - b(pixel))**2
+          ) / Math.sqrt(MAX**2 * 3)
 
-            output[x,y] = grayscale(MAX - (score * MAX).round)
-            diff << score
-          end
+          output[x, y] = grayscale(MAX - (score * MAX).round)
+          diff << score
         end
       end
 
-      diff_percent = ((diff.inject {|sum, value| sum + value} || 0) / images.first.pixels.length) * 100
+      diff_percent = ((diff.inject { |sum, value| sum + value } || 0) / images.first.pixels.length) * 100
 
       if diff_percent <= Screenshot::DIFF_IGNORE_THRESHOLD
         diff_image = nil
@@ -56,7 +55,7 @@ class ScreendiffJob < ApplicationJob
       screenshots[0].submit_diff(diff_image, diff_percent)
     ensure
       tmp_files.map(&:close)
-      tmp_files.map(&:unlink)   # deletes the temp file
+      tmp_files.map(&:unlink) # deletes the temp file
     end
   end
 end

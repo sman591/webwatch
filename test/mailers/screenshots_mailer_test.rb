@@ -9,5 +9,4 @@ class ScreenshotsMailerTest < ActionMailer::TestCase
     assert_match "change", mail.subject
     assert_match "change", mail.body.encoded
   end
-
 end

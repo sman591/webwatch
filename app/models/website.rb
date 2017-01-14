@@ -12,5 +12,4 @@ class Website < ApplicationRecord
     return nil if screenshots.count < 2
     screenshots.order(created_at: :desc)[1]
   end
-
 end

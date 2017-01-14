@@ -10,7 +10,7 @@ class ScreenshotJob < ApplicationJob
     @@active_websites << website_id
     begin
       website = Website.find(website_id)
-      return if not website
+      return unless website
 
       file = Tempfile.new(["screenshot-#{website.id}", ".png"])
       begin
@@ -23,7 +23,7 @@ class ScreenshotJob < ApplicationJob
         ScreendiffJob.perform_later(website_id: website_id)
       ensure
         file.close
-        file.unlink   # deletes the temp file
+        file.unlink # deletes the temp file
       end
     ensure
       @@active_websites.delete(website_id)
@@ -40,8 +40,8 @@ class ScreenshotJob < ApplicationJob
 
   def self.is_queued?(website_id)
     queries = [
-      Proc.new { Sidekiq::Queue.new(queue_name) },
-      Proc.new { Sidekiq::RetrySet.new }
+      proc { Sidekiq::Queue.new(queue_name) },
+      proc { Sidekiq::RetrySet.new }
     ]
     queries.any? do |query|
       query.call.any? do |job|

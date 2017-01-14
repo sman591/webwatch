@@ -96,7 +96,7 @@ Rails.application.configure do
     user_name: ENV["SMTP_USER_NAME"],
     password:  ENV["SMTP_PASSWORD"]
   }
-  config.action_mailer.default_url_options = { :host => 'watch.oweb.co', :protocol => 'https' }
+  config.action_mailer.default_url_options = { host: 'watch.oweb.co', protocol: 'https' }
   config.action_mailer.asset_host = 'https://watch.oweb.co'
 
   config.paperclip_defaults = {
@@ -105,7 +105,7 @@ Rails.application.configure do
       bucket: ENV.fetch('S3_BUCKET_NAME'),
       access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-      s3_region: ENV.fetch('AWS_REGION'),
+      s3_region: ENV.fetch('AWS_REGION')
     }
   }
 end
