@@ -18,25 +18,25 @@ class ScreenshotTest < ActiveSupport::TestCase
     assert_in_delta Time.now, screenshot.reload.diff_date, 1.minute
   end
 
-  test "#has_diff? returns false when no diff has been created" do
+  test "#diff? returns false when no diff has been created" do
     screenshot = Screenshot.first
     website = Website.first
     screenshot.website = website
 
-    assert_equal false, screenshot.reload.has_diff?
+    assert_equal false, screenshot.reload.diff?
   end
 
-  test "#has_diff? returns false when a diff has been created" do
+  test "#diff? returns false when a diff has been created" do
     screenshot = Screenshot.first
     website = Website.first
     screenshot.website = website
 
     website.update_attribute(:diff_threshold, 25.000)
     screenshot.submit_diff nil, 25.555
-    assert_equal true, screenshot.reload.has_diff?
+    assert_equal true, screenshot.reload.diff?
   end
 
-  test "#is_different? returns false when screenshot isn't different" do
+  test "#different? returns false when screenshot isn't different" do
     screenshot = Screenshot.first
     website = Website.first
     screenshot.website = website
@@ -45,11 +45,11 @@ class ScreenshotTest < ActiveSupport::TestCase
 
     [24.999, nil, 0].each do |value|
       screenshot.submit_diff nil, value
-      assert_equal false, screenshot.reload.is_different?
+      assert_equal false, screenshot.reload.different?
     end
   end
 
-  test "#is_different? returns true when screenshot is different" do
+  test "#different? returns true when screenshot is different" do
     screenshot = Screenshot.first
     website = Website.first
     screenshot.website = website
@@ -58,7 +58,7 @@ class ScreenshotTest < ActiveSupport::TestCase
 
     [25, 25.555, 70].each do |value|
       screenshot.submit_diff nil, value
-      assert_equal true, screenshot.reload.is_different?
+      assert_equal true, screenshot.reload.different?
     end
   end
 end

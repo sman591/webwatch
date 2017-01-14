@@ -11,12 +11,12 @@ class Screenshot < ApplicationRecord
 
   DIFF_IGNORE_THRESHOLD = 0
 
-  def has_diff?
+  def diff?
     diff_date.present? && diff_percent.present?
   end
 
-  def is_different?
-    has_diff? && diff_percent >= website.diff_threshold
+  def different?
+    diff? && diff_percent >= website.diff_threshold
   end
 
   def submit_diff(image, percent)
@@ -25,8 +25,7 @@ class Screenshot < ApplicationRecord
     self.diff_date = Time.now
     save!
 
-    if percent && percent > DIFF_IGNORE_THRESHOLD
-      ScreenshotsMailer.changed(id).deliver_later
-    end
+    return unless percent && percent > DIFF_IGNORE_THRESHOLD
+    ScreenshotsMailer.changed(id).deliver_later
   end
 end

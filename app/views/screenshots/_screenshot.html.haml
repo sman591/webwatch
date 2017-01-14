@@ -6,7 +6,7 @@
       %small
         = fa_icon "camera", class: "fa-space-r"
         %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at.to_formatted_s(:long_ordinal)
-- if screenshot.has_diff?
+- if screenshot.diff?
   .col-md-4
     - if screenshot.diff_image?
       .card
@@ -17,10 +17,10 @@
         %em No difference image was saved
   .col-md-4
     .card-block
-      - diff_class = screenshot.is_different? ? "text-danger" : ""
+      - diff_class = screenshot.different? ? "text-danger" : ""
       %p.card-text{class: diff_class}
         %small
-          - if screenshot.is_different?
+          - if screenshot.different?
             %strong= "Changed #{screenshot.diff_percent}%"
           - else
             = "Changed #{screenshot.diff_percent}%"

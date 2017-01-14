@@ -6,7 +6,7 @@ class ScreenshotJob < ApplicationJob
 
   def perform(args)
     website_id = args[:website_id]
-    return if self.class.is_active? website_id
+    return if self.class.active? website_id
     @@active_websites << website_id
     begin
       website = Website.find(website_id)
@@ -34,11 +34,11 @@ class ScreenshotJob < ApplicationJob
     @@webshot = Webshot::Screenshot.instance
   end
 
-  def self.is_active?(website_id)
+  def self.active?(website_id)
     @@active_websites.include? website_id
   end
 
-  def self.is_queued?(website_id)
+  def self.queued?(website_id)
     queries = [
       proc { Sidekiq::Queue.new(queue_name) },
       proc { Sidekiq::RetrySet.new }

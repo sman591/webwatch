@@ -35,28 +35,28 @@ gem 'jbuilder', '~> 2.0'
 
 ###   Custom gems   ###
 
-gem 'haml-rails', '~> 0.9'
-gem 'webshot'
-gem 'paperclip', '~> 5.0.0.beta2'
 gem 'aws-sdk', '~> 2.3'
 gem 'chunky_png'
+gem 'haml-rails', '~> 0.9'
+gem 'paperclip', '~> 5.0.0.beta2'
 gem 'rollbar'
+gem 'webshot'
 
 gem 'validate_url'
 
 gem 'sidekiq'
-gem 'sidekiq-scheduler', '~> 2.0'
 gem 'sidekiq-limit_fetch'
+gem 'sidekiq-scheduler', '~> 2.0'
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', branch: 'master', require: false
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'font-awesome-rails'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-  gem 'rails-assets-unveil'
   gem 'rails-assets-jquery-timeago'
   gem 'rails-assets-simple-lightbox'
+  gem 'rails-assets-tether', '>= 1.1.0'
+  gem 'rails-assets-unveil'
 end
 
 group :production do
@@ -76,12 +76,14 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console'
 
   ###   Custom gems   ###
 

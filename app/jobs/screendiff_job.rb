@@ -42,7 +42,7 @@ class ScreendiffJob < ApplicationJob
         end
       end
 
-      diff_percent = ((diff.inject { |sum, value| sum + value } || 0) / images.first.pixels.length) * 100
+      diff_percent = ((diff.inject { |acc, elem| acc + elem } || 0) / images.first.pixels.length) * 100
 
       if diff_percent <= Screenshot::DIFF_IGNORE_THRESHOLD
         diff_image = nil
