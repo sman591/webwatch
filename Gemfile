@@ -47,7 +47,6 @@ gem 'validate_url'
 gem 'sidekiq'
 gem 'sidekiq-limit_fetch'
 gem 'sidekiq-scheduler', '~> 2.0'
-gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', branch: 'master', require: false
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'font-awesome-rails'
