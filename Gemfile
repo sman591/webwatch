@@ -48,7 +48,7 @@ gem 'sidekiq'
 gem 'sidekiq-limit_fetch'
 gem 'sidekiq-scheduler', '~> 2.0'
 
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap', '4.0.0.alpha3'
 gem 'font-awesome-rails'
 
 source 'https://rails-assets.org' do
