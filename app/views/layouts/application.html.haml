@@ -17,6 +17,22 @@
             %a.nav-link{:href => root_path} Home
           %li.nav-item
             %a.nav-link{:href => websites_path} Websites
+          %li.nav-item
+            / TODO: refactor
+            %script{ src: "https://cdn.auth0.com/js/lock/10.9.1/lock.min.js" }
+            :javascript
+              var lock = new Auth0Lock(
+              '<%= Rails.application.secrets.auth0_client_id %>',
+              '<%= Rails.application.secrets.auth0_domain %>', {
+                auth: {
+                  redirectUrl: window.location.origin + '/auth/auth0/callback',
+                  responseType: 'code',
+                  params: {
+                    scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+                  }
+                }
+              });
+            %button.btn.btn-primary.nav-link{ onclick: "lock.show(); this.blur();" } Login
 
     .container
       - if flash[:notice].present? || flash[:alert].present?

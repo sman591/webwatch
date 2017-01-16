@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.0'
 
 ###   Custom gems   ###
 
+gem 'rodash', '~> 2.0'
+
 gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
 
 gem 'aws-sdk', '~> 2.3'
@@ -43,6 +45,9 @@ gem 'haml-rails', '~> 0.9'
 gem 'paperclip', '~> 5.0.0.beta2'
 gem 'rollbar'
 gem 'webshot'
+
+gem 'omniauth', '~> 1.3.1'
+gem 'omniauth-auth0', '~> 1.4.2'
 
 gem 'validate_url'
 

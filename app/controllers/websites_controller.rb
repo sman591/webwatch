@@ -1,4 +1,6 @@
 class WebsitesController < ApplicationController
+  include Secured
+
   before_action :set_website, only: [:show, :edit, :update, :destroy, :refresh]
 
   # GET /websites
