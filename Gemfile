@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.0'
 
 ###   Custom gems   ###
 
+gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
+
 gem 'aws-sdk', '~> 2.3'
 gem 'chunky_png'
 gem 'haml-rails', '~> 0.9'

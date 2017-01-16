@@ -80,6 +80,10 @@ GEM
     concurrent-ruby (1.0.4)
     connection_pool (2.2.1)
     debug_inspector (0.0.2)
+    dotenv (2.1.2)
+    dotenv-rails (2.1.2)
+      dotenv (= 2.1.2)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     eventmachine (1.2.1)
     execjs (2.7.0)
@@ -298,6 +302,7 @@ DEPENDENCIES
   byebug
   chunky_png
   coffee-rails (~> 4.2.0)
+  dotenv-rails
   font-awesome-rails
   guard
   guard-minitest
