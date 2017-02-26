@@ -19,11 +19,11 @@
             %a.nav-link{:href => websites_path} Websites
           %li.nav-item
             / TODO: refactor
-            %script{ src: "https://cdn.auth0.com/js/lock/10.9.1/lock.min.js" }
+            %script{ src: "https://cdn.auth0.com/js/lock/10.2/lock.min.js" }
             :javascript
               var lock = new Auth0Lock(
-              '<%= Rails.application.secrets.auth0_client_id %>',
-              '<%= Rails.application.secrets.auth0_domain %>', {
+              '#{Rails.application.secrets.auth0_client_id}',
+              '#{Rails.application.secrets.auth0_domain}', {
                 auth: {
                   redirectUrl: window.location.origin + '/auth/auth0/callback',
                   responseType: 'code',
