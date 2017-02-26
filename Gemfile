@@ -42,11 +42,11 @@ gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
 gem 'aws-sdk', '~> 2.3'
 gem 'chunky_png'
 gem 'haml-rails', '~> 0.9'
-gem 'paperclip', '~> 5.0.0.beta2'
+gem 'paperclip', '~> 5.1.0'
 gem 'rollbar'
 gem 'webshot'
 
-gem 'omniauth', '~> 1.3.1'
+gem 'omniauth', '~> 1.6.1'
 gem 'omniauth-auth0', '~> 1.4.2'
 
 gem 'validate_url'
