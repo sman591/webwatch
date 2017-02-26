@@ -11,4 +11,11 @@ class Auth0ControllerTest < ActionDispatch::IntegrationTest
   #   get auth_failure_url
   #   assert_response :success
   # end
+
+  test "should log out" do
+    login
+    assert_not_nil session[:userinfo]
+    get auth_auth0_logout_url
+    assert_nil session[:userinfo]
+  end
 end
