@@ -6,12 +6,12 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    unless session[:userinfo].present?
+    unless current_user
       flash[:notice] = 'Please login to access that page.'
       redirect_to '/'
     end
 
-    unless Rodash.get(session[:userinfo], "extra.raw_info.user_metadata.admin")
+    unless Rodash.get(current_user, "extra.raw_info.user_metadata.admin")
       raise ActionController::RoutingError.new('Not Found')
     end
   end
