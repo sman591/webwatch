@@ -12,10 +12,10 @@ module Secured
       return false
     end
 
-    unless Rodash.get(current_user, "extra.raw_info.user_metadata.admin")
-      flash[:alert] = 'Please contact an administrator to access that page.'
-      redirect_to root_path
-      return false
-    end
+    return if Rodash.get(current_user, "extra.raw_info.user_metadata.admin")
+
+    flash[:alert] = 'Please contact an administrator to access that page.'
+    redirect_to root_path
+    false
   end
 end

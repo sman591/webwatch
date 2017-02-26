@@ -109,7 +109,7 @@ Rails.application.configure do
     }
   }
 
-  OmniAuth.config.on_failure = Proc.new { |env|
+  OmniAuth.config.on_failure = proc { |env|
     message_key = env['omniauth.error.type']
     error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
     new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}&error_description=#{error_description}"
