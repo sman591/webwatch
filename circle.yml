@@ -1,3 +1,6 @@
+test:
+  pre:
+    - cp .env.sample .env
 deployment:
   production:
     branch: master
