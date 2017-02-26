@@ -4,8 +4,8 @@ class ScreenshotTest < ActiveSupport::TestCase
   test "diff attributes are blank by default" do
     screenshot = Screenshot.create(website: Website.create)
 
-    assert_equal nil, screenshot.reload.diff_percent
-    assert_equal nil, screenshot.reload.diff_date
+    assert_nil screenshot.reload.diff_percent
+    assert_nil screenshot.reload.diff_date
   end
 
   test "#submit_diff saves attributes" do
