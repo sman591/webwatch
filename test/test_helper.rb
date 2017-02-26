@@ -8,6 +8,23 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.mock_auth[:auth0] = OmniAuth::AuthHash.new(
+    extra: {
+      raw_info: {
+        user_metadata: {
+          admin: true
+        }
+      }
+    }
+  )
+
+  def login
+    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:auth0]
+    get auth_auth0_callback_url
+  end
+
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :minitest

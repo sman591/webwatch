@@ -3,6 +3,7 @@ require 'test_helper'
 class WebsitesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @website = websites(:one)
+    login
   end
 
   test "should get index" do
