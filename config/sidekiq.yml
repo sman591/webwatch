@@ -1,8 +1,4 @@
-:queues:
-  - default
-  - screenshots
-  - mailers
-# https://github.com/mperham/sidekiq/wiki/Problems-and-Troubleshooting
-:concurrency:  3
-:limits:
-  screenshots: 1
+:schedule:
+  ScreenshotSchedulerJob:
+    every: 6h
+    description: Capture new screenshots
