@@ -1,4 +1,7 @@
 :concurrency: 5
+:queues:
+  - default
+  - low
 :schedule:
   ScreenshotSchedulerJob:
     every: 6h
