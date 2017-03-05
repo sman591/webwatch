@@ -9,6 +9,8 @@ class Screenshot < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :image, matches: [/png\Z/]
 
+  after_commit :broadcast_changes
+
   DIFF_IGNORE_THRESHOLD = 0
 
   def diff?
@@ -27,5 +29,13 @@ class Screenshot < ApplicationRecord
 
     return unless percent && percent > DIFF_IGNORE_THRESHOLD
     ScreenshotsMailer.changed(id).deliver_later
+  end
+
+  private
+
+  def broadcast_changes
+    ActionCable.server.broadcast 'screenshots',
+                                 screenshot: id,
+                                 website: website_id
   end
 end

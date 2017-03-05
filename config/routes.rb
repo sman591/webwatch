@@ -3,6 +3,9 @@ require 'sidekiq-scheduler'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+
   get '/auth/auth0/callback' => 'auth0#callback'
   get '/auth/failure' => 'auth0#failure'
   get '/auth/auth0/logout' => 'auth0#logout'

@@ -65,7 +65,7 @@ class WebsitesController < ApplicationController
 
   def refresh
     ScreenshotJob.perform_later(website_id: @website.id)
-    redirect_to :websites, notice: "Refresh has been queued for #{@website.url}"
+    redirect_to @website, notice: "Refresh has been queued for #{@website.url}"
   end
 
   private
