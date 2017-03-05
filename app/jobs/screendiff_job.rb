@@ -1,7 +1,7 @@
 include ChunkyPNG::Color
 
 class ScreendiffJob < ApplicationJob
-  queue_as :default
+  queue_as :low
 
   def perform(args)
     website_id = args[:website_id]
