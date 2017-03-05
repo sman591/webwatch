@@ -1,4 +1,6 @@
 require 'sidekiq/web'
+require 'sidekiq-scheduler'
+require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
   get '/auth/auth0/callback' => 'auth0#callback'
