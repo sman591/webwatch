@@ -4,7 +4,7 @@
   .card-block
     %p.card-text
       %small
-        = fa_icon "camera", class: "fa-space-r"
+        = fa_icon "clock-o", class: "fa-space-r"
         %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at.to_formatted_s(:long_ordinal)
 - if screenshot.diff?
   .col-md-4
