@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.2.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,40 +37,40 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rodash', '~> 2.0'
 
-gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
+gem 'dotenv-rails', '~> 2.2', require: 'dotenv/rails-now', group: [:development, :test]
 
 gem 'aws-sdk', '~> 2.3'
-gem 'chunky_png'
+gem 'chunky_png', '~> 1.3.8'
 gem 'haml-rails', '~> 0.9'
 gem 'paperclip', '~> 5.1.0'
-gem 'rollbar'
-gem 'webshot'
+gem 'rollbar', '~> 2.14'
+gem 'webshot', '~> 0.1.0'
 
 gem 'omniauth', '~> 1.6.1'
 gem 'omniauth-auth0', '~> 1.4.2'
 
-gem 'validate_url'
+gem 'validate_url', '~> 1.0'
 
-gem 'sidekiq'
-gem 'sidekiq-limit_fetch'
+gem 'sidekiq', '~> 5.0'
+gem 'sidekiq-limit_fetch', '~> 3.4.0'
 gem 'sidekiq-scheduler', '~> 2.0'
 
 gem 'bootstrap', '4.0.0.alpha3'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.7'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-jquery-timeago'
-  gem 'rails-assets-simple-lightbox'
+  gem 'rails-assets-jquery-timeago', '~> 1.5.4'
+  gem 'rails-assets-simple-lightbox', '~> 1.2.9'
   gem 'rails-assets-tether', '>= 1.1.0'
-  gem 'rails-assets-unveil'
+  gem 'rails-assets-unveil', '~> 1.3.0'
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 group :test do
-  gem 'shoulda-context'
+  gem 'shoulda-context', '~> 1.2'
   gem 'shoulda-matchers', '~> 3.1'
 end
 

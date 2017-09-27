@@ -321,15 +321,15 @@ DEPENDENCIES
   aws-sdk (~> 2.3)
   bootstrap (= 4.0.0.alpha3)
   byebug
-  chunky_png
+  chunky_png (~> 1.3.8)
   coffee-rails (~> 4.2.0)
-  dotenv-rails
-  font-awesome-rails
+  dotenv-rails (~> 2.2)
+  font-awesome-rails (~> 4.7)
   guard
   guard-minitest
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
-  jquery-rails
+  jquery-rails (~> 4.3.1)
   listen (~> 3.0)
   omniauth (~> 1.6.1)
   omniauth-auth0 (~> 1.4.2)
@@ -337,27 +337,27 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
-  rails-assets-jquery-timeago!
-  rails-assets-simple-lightbox!
+  rails-assets-jquery-timeago (~> 1.5.4)!
+  rails-assets-simple-lightbox (~> 1.2.9)!
   rails-assets-tether (>= 1.1.0)!
-  rails-assets-unveil!
-  rails_12factor
+  rails-assets-unveil (~> 1.3.0)!
+  rails_12factor (~> 0.0.3)
   rodash (~> 2.0)
-  rollbar
+  rollbar (~> 2.14)
   sass-rails (~> 5.0)
-  shoulda-context
+  shoulda-context (~> 1.2)
   shoulda-matchers (~> 3.1)
-  sidekiq
-  sidekiq-limit_fetch
+  sidekiq (~> 5.0)
+  sidekiq-limit_fetch (~> 3.4.0)
   sidekiq-scheduler (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5.x)
   tzinfo-data
   uglifier (>= 1.3.0)
-  validate_url
+  validate_url (~> 1.0)
   web-console
-  webshot
+  webshot (~> 0.1.0)
 
 RUBY VERSION
    ruby 2.4.2p198
