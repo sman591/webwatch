@@ -1,11 +1,6 @@
 .col-md-4
   .card
     = render "screenshots/image", image: screenshot.image, object: screenshot, group: "image"
-  .card-block
-    %p.card-text
-      %small
-        = fa_icon "clock-o", class: "fa-space-r"
-        %time.timeago{datetime: screenshot.created_at.iso8601}= screenshot.created_at.to_formatted_s(:long_ordinal)
 - if screenshot.diff?
   .col-md-4
     - if screenshot.diff_image?
@@ -13,8 +8,7 @@
         = render "screenshots/image", image: screenshot.diff_image, object: screenshot, group: "diff_image"
     - else
       %p.alert.small.text-muted.center
-        %i.fa.fa-info-circle.fa-space-r
-        %em No difference image was saved
+        %em No difference from previous screenshot
   .col-md-4
     .card-block
       - diff_class = screenshot.different? ? "text-danger" : ""
@@ -23,10 +17,10 @@
           - if screenshot.different?
             %strong= "Changed #{screenshot.diff_percent}%"
           - else
-            = "Changed #{screenshot.diff_percent}%"
+            = "No Change (#{screenshot.diff_percent}%)"
         %br
         %small
-          Generated
+          = fa_icon "clock-o", class: "fa-space-r"
           %time.timeago{datetime: screenshot.diff_date.iso8601}= screenshot.diff_date.to_formatted_s(:long_ordinal)
 - else
   .col-md-8
