@@ -41,7 +41,7 @@ gem 'dotenv-rails', '~> 2.2', require: 'dotenv/rails-now', group: [:development,
 
 gem 'aws-sdk', '~> 2.3'
 gem 'chunky_png', '~> 1.3.8'
-gem 'haml-rails', '~> 0.9'
+gem 'haml-rails', '~> 1.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'rollbar', '~> 2.14'
 gem 'webshot', '~> 0.1.0'
