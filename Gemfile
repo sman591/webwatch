@@ -53,7 +53,6 @@ gem 'validate_url', '~> 1.0'
 
 gem 'sidekiq', '~> 5.0'
 gem 'sidekiq-limit_fetch', '~> 3.4.0'
-gem 'sidekiq-scheduler', '~> 2.0'
 
 gem 'bootstrap', '4.0.0.alpha3'
 gem 'font-awesome-rails', '~> 4.7'

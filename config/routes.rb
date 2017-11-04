@@ -1,6 +1,4 @@
 require 'sidekiq/web'
-require 'sidekiq-scheduler'
-require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
   # Serve websocket cable requests in-process

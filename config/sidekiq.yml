@@ -3,7 +3,3 @@
   - default
   - mailers
   - low
-:schedule:
-  ScreenshotSchedulerJob:
-    every: 6h
-    description: Capture new screenshots
