@@ -1,5 +1,5 @@
 class ScreenshotJob < ApplicationJob
-  queue_as :default
+  queue_as :screenshots
 
   @@active_websites = []
   @@webshot = nil
