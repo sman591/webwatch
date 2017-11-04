@@ -15,7 +15,7 @@
 - if @website.screenshots.empty?
   .row
     .col-xs-12
-      %p.alert.alert-info.col-xs-12
+      %p.alert.alert-info
         = fa_icon "info-circle", class: "fa-space-r"
         No screenshots have been taken yet.
         = link_to refresh_website_path(@website) do

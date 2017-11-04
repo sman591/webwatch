@@ -10,6 +10,13 @@
 
 .row
   .col-xs-12
+    - if @websites.empty?
+      %p.alert.alert-info
+        = fa_icon "info-circle", class: "fa-space-r"
+        No websites yet!
+        = link_to new_website_path do
+          Add your first one now
+          = fa_icon "angle-right"
     .card-columns
       - @websites.each do |website|
         .card.website{onclick: "window.location = '#{website_path(website.id)}/'"}
