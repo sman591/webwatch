@@ -9,4 +9,4 @@
 
 %p Screenshot:
 
-= image_tag @screenshot.image.url(:medium)
+= render "screenshots/image", image: @screenshot.image, object: @screenshot, group: "image", lazy_load: false

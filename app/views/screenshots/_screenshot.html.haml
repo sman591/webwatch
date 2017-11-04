@@ -1,11 +1,11 @@
 .col-md-4
   .card
-    = render "screenshots/image", image: screenshot.image, object: screenshot, group: "image"
+    = render "screenshots/image", image: screenshot.image, object: screenshot, group: "image", lazy_load: true
 - if screenshot.diff?
   .col-md-4
     - if screenshot.diff_image?
       .card
-        = render "screenshots/image", image: screenshot.diff_image, object: screenshot, group: "diff_image"
+        = render "screenshots/image", image: screenshot.diff_image, object: screenshot, group: "diff_image", lazy_load: true
     - else
       %p.alert.small.text-muted.center
         %em No difference from previous screenshot
