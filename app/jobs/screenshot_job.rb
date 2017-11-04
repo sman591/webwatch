@@ -14,7 +14,7 @@ class ScreenshotJob < ApplicationJob
 
       file = Tempfile.new(["screenshot-#{website.id}", ".png"])
       begin
-        webshot.capture website.url, file.path, width: 900, height: 562, quality: 85
+        webshot.capture(website.url, file.path, width: 900, height: 562, quality: 85, timeout: 2)
         screenshot = Screenshot.new
         screenshot.website = website
         screenshot.image = open(file.path)
