@@ -6,5 +6,5 @@ deployment:
     branch: master
     commands:
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
-      - git push git@heroku.com:evening-sands-22413.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app evening-sands-22413
+      - git push git@heroku.com:webwatch.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app webwatch
