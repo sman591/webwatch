@@ -3,3 +3,10 @@
   = "#{@screenshot.diff_percent}%"
   change to the site
   = @screenshot.website.url
+
+%p
+  = link_to "View on Web Watch &raquo;".html_safe, @screenshot.website
+
+%p Screenshot:
+
+= image_tag @screenshot.image.url(:medium)
