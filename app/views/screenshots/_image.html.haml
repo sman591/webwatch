@@ -1,5 +1,6 @@
-- title = object.created_at.to_formatted_s(:long)
+- lightbox_title = object.created_at.to_formatted_s(:long)
+- alt = "#{object.website.url} on #{lightbox_title}"
 
-= link_to image.url(:original), data: { lightbox: group }, title: title do
+= link_to image.url(:original), data: { lightbox: group }, title: lightbox_title do
   - src_attr = lazy_load ? 'data-src' : 'src'
-  %img.card-img-top.card-img-flex{alt: title, src_attr => image.url(:medium)}/
+  %img.card-img-top.card-img-flex{alt: alt, src_attr => image.url(:medium)}/
