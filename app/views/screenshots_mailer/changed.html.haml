@@ -1,12 +1,20 @@
 %p
   There has been a
-  = "#{@screenshot.diff_percent}%"
-  change to the site
-  = @screenshot.website.url
+  %strong= "#{@screenshot.diff_percent}% change"
+  on
+  %strong= @screenshot.website.url
 
 %p
   = link_to "View on Web Watch &raquo;".html_safe, @screenshot.website
 
-%p Screenshot:
+%p Current Screenshot:
 
 = render "screenshots/image", image: @screenshot.image, object: @screenshot, group: "image", lazy_load: false
+
+%p Previous Screenshot:
+
+- if @screenshot.previous_screenshot
+  = render "screenshots/image", image: @screenshot.previous_screenshot.image, object: @screenshot, group: "image", lazy_load: false
+- else
+  %p
+    %em No previous screenshot exists

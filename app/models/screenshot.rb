@@ -31,6 +31,10 @@ class Screenshot < ApplicationRecord
     ScreenshotsMailer.changed(id).deliver_later
   end
 
+  def previous_screenshot
+    website.sorted_screenshots.where('created_at < ?', created_at).first
+  end
+
   private
 
   def broadcast_changes

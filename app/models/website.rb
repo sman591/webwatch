@@ -3,13 +3,17 @@ class Website < ApplicationRecord
 
   validates :url, url: { allow_blank: false }
 
+  def sorted_screenshots
+    screenshots.order(created_at: :desc)
+  end
+
   def current_screenshot
     return nil if screenshots.empty?
-    screenshots.order(created_at: :desc).first
+    sorted.first
   end
 
   def previous_screenshot
     return nil if screenshots.count < 2
-    screenshots.order(created_at: :desc)[1]
+    sorted[1]
   end
 end
