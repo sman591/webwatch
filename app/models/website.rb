@@ -9,11 +9,11 @@ class Website < ApplicationRecord
 
   def current_screenshot
     return nil if screenshots.empty?
-    sorted.first
+    sorted_screenshots.first
   end
 
   def previous_screenshot
     return nil if screenshots.count < 2
-    sorted[1]
+    sorted_screenshots[1]
   end
 end
