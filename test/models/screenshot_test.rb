@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ScreenshotTest < ActiveSupport::TestCase
+  include ActiveJob::TestHelper
+
   test "diff attributes are blank by default" do
     screenshot = Screenshot.create(website: Website.create)
 
@@ -16,6 +18,26 @@ class ScreenshotTest < ActiveSupport::TestCase
     screenshot.submit_diff nil, 25.555
     assert_equal 25.555, screenshot.reload.diff_percent
     assert_in_delta Time.now, screenshot.reload.diff_date, 1.minute
+  end
+
+  test "#submit_diff does not queue job when no difference" do
+    screenshot = Screenshot.first
+    website = Website.first
+    screenshot.website = website
+
+    assert_enqueued_jobs 0 do
+      screenshot.submit_diff nil, 0.01
+    end
+  end
+
+  test "#submit_diff queues job with screenshot difference" do
+    screenshot = Screenshot.first
+    website = Website.first
+    screenshot.website = website
+
+    assert_enqueued_jobs 1 do
+      screenshot.submit_diff nil, 25.555
+    end
   end
 
   test "#diff? returns false when no diff has been created" do
