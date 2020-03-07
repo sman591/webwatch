@@ -200,7 +200,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.4)
     rack (2.0.6)
     rack-protection (2.0.5)
       rack
@@ -339,7 +339,7 @@ DEPENDENCIES
   omniauth-auth0 (~> 1.4.2)
   paperclip (~> 5.2.0)
   pg (~> 0.18)
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails (~> 5.1.0)
   rails-assets-jquery-timeago (~> 1.5.4)!
   rails-assets-simple-lightbox (~> 1.2.9)!
