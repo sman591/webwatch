@@ -90,10 +90,10 @@ class ScreenshotTest < ActiveSupport::TestCase
     screenshot3 = Screenshot.first.dup
     screenshot4 = Screenshot.first.dup
     website = Website.first
-    screenshot1.update_attributes(website: website, created_at: 20.days.ago)
-    screenshot2.update_attributes(website: website, created_at: 30.days.ago)
-    screenshot3.update_attributes(website: website, created_at: 10.days.ago)
-    screenshot4.update_attributes(website: website, created_at: 5.days.ago)
+    screenshot1.update(website: website, created_at: 20.days.ago)
+    screenshot2.update(website: website, created_at: 30.days.ago)
+    screenshot3.update(website: website, created_at: 10.days.ago)
+    screenshot4.update(website: website, created_at: 5.days.ago)
 
     assert_equal screenshot3, screenshot4.previous_screenshot
     assert_equal screenshot1, screenshot3.previous_screenshot
