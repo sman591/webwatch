@@ -14,12 +14,13 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
+  if Rails.root.join("tmp", "caching-dev.txt").exist?
     config.action_controller.perform_caching = true
+    config.action_controller.enable_fragment_cache_logging = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
+      "Cache-Control" => "public, max-age=#{2.days.to_i}",
     }
   else
     config.action_controller.perform_caching = false
@@ -27,7 +28,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Store uploaded files on the local file system (see config/storage.yml for options)
+  # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
@@ -52,7 +53,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # Raises error for missing translations
+  # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
@@ -64,14 +65,14 @@ Rails.application.configure do
   # Use MailCatcher (https://mailcatcher.me)
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
-  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
-  config.action_mailer.asset_host = 'http://localhost:3000'
+  config.action_mailer.default_url_options = { host: "localhost:3000", protocol: "http" }
+  config.action_mailer.asset_host = "http://localhost:3000"
 
   # TODO: this was only supposed to be in production.rb?
   OmniAuth.config.on_failure = proc { |env|
-    message_key = env['omniauth.error.type']
-    error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
-    new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}&error_description=#{error_description}"
-    Rack::Response.new(['302 Moved'], 302, 'Location' => new_path).finish
+    message_key = env["omniauth.error.type"]
+    error_description = Rack::Utils.escape(env["omniauth.error"].error_reason)
+    new_path = "#{env["SCRIPT_NAME"]}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}&error_description=#{error_description}"
+    Rack::Response.new(["302 Moved"], 302, "Location" => new_path).finish
   }
 end
