@@ -54,10 +54,10 @@ gem 'omniauth-auth0', '~> 1.4.2'
 
 gem 'validate_url', '~> 1.0'
 
-gem 'sidekiq', '< 7'
+gem 'sidekiq', '~> 6.0'
 gem 'sidekiq-limit_fetch', '~> 3.4.0'
 
-gem 'redis', '~> 3.0'
+gem 'redis', '~> 4.0'
 
 gem 'bootstrap', '4.0.0.alpha3'
 gem 'font-awesome-rails', '~> 4.7'
