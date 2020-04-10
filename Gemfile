@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby IO.read(File.expand_path("../.ruby-version", __FILE__)).chomp
+ruby IO.read(File.expand_path('.ruby-version', __dir__)).chomp
 
 ### Everything not wrapped with "custom gems" came default with Rails
 
@@ -40,7 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'rodash', '~> 2.0'
 
-gem 'dotenv-rails', '~> 2.2', require: 'dotenv/rails-now', group: [:development, :test]
+gem 'dotenv-rails', '~> 2.2', require: 'dotenv/rails-now', group: %i[development test]
 
 gem 'aws-sdk', '~> 2.3'
 gem 'chunky_png', '~> 1.3.8'
@@ -54,7 +54,7 @@ gem 'omniauth-auth0', '~> 1.4.2'
 
 gem 'validate_url', '~> 1.0'
 
-gem 'sidekiq', '~> 5.0'
+gem 'sidekiq', '< 7'
 gem 'sidekiq-limit_fetch', '~> 3.4.0'
 
 gem 'redis', '~> 3.0'
