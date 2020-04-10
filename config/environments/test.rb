@@ -15,7 +15,7 @@ Rails.application.configure do
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=3600'
+    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
   # Show full error reports and disable caching.
@@ -27,6 +27,10 @@ Rails.application.configure do
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
+
+  # Store uploaded files on the local file system in a temporary directory
+  config.active_storage.service = :test
+
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
@@ -36,12 +40,13 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-  config.active_job.queue_adapter = :test
-
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
+  
   ### Custom ###
+  config.active_job.queue_adapter = :test
+
   config.action_mailer.default_url_options = { host: 'watch.example.com', protocol: 'http' }
   config.action_mailer.asset_host = 'http://watch.example.com'
 end
